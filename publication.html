@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>计算认知与脑科学实验室 - 中山大学</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&amp;family=Open+Sans:wght@300;400;600&amp;display=swap" rel="stylesheet"/>
+<style>
+        :root {
+            --primary-color: #0a2463;
+            --secondary-color: #3e92cc;
+            --accent-color: #d8315b;
+            --light-color: #f8f9fa;
+            --dark-color: #1e1e24;
+            --text-color: #444;
+            --light-gray: #e9ecef;
+            --medium-gray: #ced4da;
+            --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.08);
+            --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+            --border-radius: 8px;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.7;
+            color: var(--text-color);
+            background-color: #f9f9f9;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Merriweather', serif;
+            font-weight: 700;
+        }
+        
+        /* Header and Navigation */
+        header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #1a3e8c 100%);
+            color: white;
+            padding: 1rem 0;
+            box-shadow: var(--shadow-md);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .lab-name {
+            text-align: left;
+        }
+        
+        .lab-name h1 {
+            font-size: 1.8rem;
+            margin-bottom: 0.3rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+        
+        .lab-name p {
+            font-size: 0.9rem;
+            opacity: 0.85;
+            font-weight: 300;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav li {
+            margin-left: 1.2rem;
+            position: relative;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 0.8rem;
+            border-radius: 4px;
+            transition: var(--transition);
+            font-size: 0.95rem;
+        }
+        
+        nav a:hover, nav a.active {
+            background-color: rgba(255, 255, 255, 0.15);
+        }
+        
+        nav a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60%;
+            height: 2px;
+            background-color: white;
+            border-radius: 2px;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(10, 36, 99, 0.85), rgba(10, 36, 99, 0.9)), url('https://images.unsplash.com/photo-1516549655169-df83a0774514?ixlib=rb-4.0.3&auto=format&fit=crop&w=1800&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 5rem 2rem;
+            text-align: center;
+            position: relative;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.2rem;
+            color: white;
+            line-height: 1.3;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+            font-weight: 300;
+        }
+        
+        /* Main content */
+        .container {
+            padding: 2rem;
+        }
+        
+        /* Section styling */
+        section {
+            margin-bottom: 3rem;
+            padding: 2.5rem;
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            border-top: 4px solid transparent;
+        }
+        
+        section:hover {
+            box-shadow: var(--shadow-md);
+            border-top: 4px solid var(--secondary-color);
+        }
+        
+        h2 {
+            color: var(--primary-color);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 2px solid var(--light-gray);
+            position: relative;
+        }
+        
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 80px;
+            height: 2px;
+            background-color: var(--secondary-color);
+        }
+        
+        h3 {
+            color: var(--dark-color);
+            margin: 1.5rem 0 1rem;
+            font-size: 1.4rem;
+        }
+        
+        /* Cognitive image section */
+        .cognitive-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .cognitive-image {
+            width: 100%;
+            max-width: 800px;
+            margin-bottom: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-lg);
+            transition: var(--transition);
+        }
+        
+        .cognitive-image:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .cognitive-content {
+            max-width: 800px;
+        }
+        
+        .cognitive-content p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+        
+        /* Lab intro */
+        .lab-intro {
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto 2.5rem;
+        }
+        
+        .lab-intro p {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+        
+        /* Research highlights */
+        .research-highlights {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.8rem;
+            margin-top: 2.5rem;
+        }
+        
+        .research-card {
+            background: white;
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            text-align: center;
+            border-top: 3px solid transparent;
+        }
+        
+        .research-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+            border-top: 3px solid var(--accent-color);
+        }
+        
+        .research-card i {
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 1.2rem;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .research-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+        
+        .research-card p {
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        
+        /* Lab features */
+        .lab-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.8rem;
+            margin-top: 2.5rem;
+        }
+        
+        .feature {
+            text-align: center;
+            padding: 1.8rem 1.5rem;
+            background: var(--light-color);
+            border-radius: var(--border-radius);
+            transition: var(--transition);
+        }
+        
+        .feature:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .feature i {
+            font-size: 2.2rem;
+            color: var(--secondary-color);
+            margin-bottom: 1.2rem;
+            display: inline-block;
+            padding: 0.8rem;
+            border-radius: 50%;
+            background-color: rgba(62, 146, 204, 0.1);
+        }
+        
+        .feature h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.8rem;
+            font-size: 1.2rem;
+        }
+        
+        .feature p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        
+        /* News section */
+        .news-container {
+            margin-top: 2rem;
+        }
+        
+        .news-item {
+            padding: 1.8rem;
+            border-left: 4px solid var(--secondary-color);
+            background-color: var(--light-color);
+            margin-bottom: 1.5rem;
+            border-radius: 0 var(--border-radius) var(--border-radius) 0;
+            transition: var(--transition);
+        }
+        
+        .news-item:hover {
+            transform: translateX(5px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .news-date {
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 0.8rem;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .news-date::before {
+            content: '📅';
+            margin-right: 0.5rem;
+        }
+        
+        .news-item h3 {
+            margin-bottom: 0.8rem;
+            color: var(--dark-color);
+        }
+        
+        .news-item p {
+            line-height: 1.6;
+        }
+        
+        /* Publications section */
+        .publications-container {
+            margin-top: 2rem;
+            padding: 2rem;
+            background-color: var(--light-color);
+            border-radius: var(--border-radius);
+        }
+        
+        .publication-item {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--medium-gray);
+        }
+        
+        .publication-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
+        .publication-item p {
+            line-height: 1.6;
+            margin-bottom: 0.5rem;
+        }
+        
+        .publication-link {
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+        
+        .publication-link:hover {
+            color: var(--primary-color);
+            text-decoration: underline;
+        }
+        
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #1a3e8c 100%);
+            color: white;
+            padding: 3rem 2rem 1.5rem;
+            text-align: center;
+            margin-top: 4rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto 2rem;
+            text-align: left;
+        }
+        
+        .footer-section {
+            margin-bottom: 1.5rem;
+        }
+        
+        .footer-section h3 {
+            color: white;
+            margin-bottom: 1.2rem;
+            font-size: 1.3rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+        
+        .footer-section h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: var(--secondary-color);
+        }
+        
+        .footer-section p {
+            margin-bottom: 0.5rem;
+            opacity: 0.9;
+            font-size: 0.95rem;
+        }
+        
+        .qr-code {
+            width: 150px;
+            height: 150px;
+            margin: 0 auto 1rem;
+            background: white;
+            padding: 0.5rem;
+            border-radius: var(--border-radius);
+            display: block;
+        }
+        
+        .qr-code img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+        
+        .copyright {
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.15);
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        /* Responsive design */
+        @media (max-width: 992px) {
+            .header-content {
+                padding: 0 1.5rem;
+            }
+            
+            .hero {
+                padding: 4rem 1.5rem;
+            }
+            
+            .hero h2 {
+                font-size: 2.2rem;
+            }
+            
+            .container {
+                padding: 1.5rem;
+            }
+            
+            section {
+                padding: 2rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .lab-name {
+                margin-bottom: 1.2rem;
+                text-align: center;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            nav li {
+                margin: 0.4rem;
+            }
+            
+            .hero h2 {
+                font-size: 1.8rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            section {
+                padding: 1.5rem;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .footer-section h3::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+        }
+        
+        /* Animation effects */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.8s ease forwards;
+        }
+        
+        .delay-1 { animation-delay: 0.2s; }
+        .delay-2 { animation-delay: 0.4s; }
+        .delay-3 { animation-delay: 0.6s; }
+        
+        /* Button style (if needed in future) */
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background: var(--secondary-color);
+            color: white;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .btn:hover {
+            background: var(--primary-color);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+        }
+    </style>
+</head>
+<body>
+<header>
+<div class="header-content">
+<div class="lab-name">
+<h1>计算认知与脑科学实验室</h1>
+<p>中山大学心理学系</p>
+</div>
+<nav>
+<ul>
+<li><a class="active" href="#">首页</a></li>
+<li><a href="#">研究方向</a></li>
+<li><a href="#">团队成员</a></li>
+<li><a href="#">科研成果</a></li>
+<li><a href="#">学术资源</a></li>
+<li><a href="#">联系我们</a></li>
+</ul>
+</nav>
+</div>
+</header>
+<div class="hero">
+<div class="hero-content">
+<h2>探索心智与大脑的奥秘</h2>
+<p>计算认知与脑科学实验室致力于通过跨学科方法研究人类认知过程及其神经机制</p>
+</div>
+</div>
+<div class="container">
+<section class="fade-in" id="publications">
+<h2>发表论文</h2>
+<div class="publications-container">
+<div class="publication-item">
+<p>32. Yin, Z., Chen, S., Wen, N., Zhao, B., He, Z., & Liu, Y*. (2025). Repeated previews elicit an inhibitory parafoveal-on-foveal effect in Chinese reading: Implications for attention allocation. Journal of Experimental Psychology: Learning, Memory, and Cognition. <a href="https://doi.org/10.1037/xlm0001471" class="publication-link">https://doi.org/10.1037/xlm0001471</a></p>
+</div>
+<div class="publication-item">
+<p>31. Liu, Y.*, Yu, L., & Reichle, E. D. (2024). Towards a model of eye-movement control in Chinese reading. Psychonomic Bulletin & Review. <a href="https://doi.org/10.3758/s13423-024-02570-9" class="publication-link">https://doi.org/10.3758/s13423-024-02570-9</a></p>
+</div>
+<div class="publication-item">
+<p>30. Chen, S., Reichle, E. D., & Liu, Y.* (2024). Direct lexical control of eye movements in Chinese reading: Evidence from the co-registration of EEG and eye tracking. Cognitive Psychology, 153(7):101683. <a href="https://doi.org/10.1016/j.cogpsych.2024.101683" class="publication-link">https://doi.org/10.1016/j.cogpsych.2024.101683</a></p>
+</div>
+<div class="publication-item">
+<p>29. Mei, X., Chen, S., Xia, X., & Liu, Y.* (2024). Neural correlates for word-frequency effect in Chinese natural reading. Attention, Perception, & Psychophysics, 87(1):120-132. <a href="https://doi.org/10.3758/s13414-024-02894-7" class="publication-link">https://doi.org/10.3758/s13414-024-02894-7</a></p>
+</div>
+<div class="publication-item">
+<p>28. Xia, X., Reichle, E.D., & Liu, Y.* (2024). Saccadic Targeting in the Landolt-C Task: Implications for Chinese Reading. Journal of Experimental Psychology: Learning, Memory, and Cognition, 50(11):1749-1771. <a href="https://doi.org/10.1037/xlm0001343" class="publication-link">https://doi.org/10.1037/xlm0001343</a></p>
+</div>
+<div class="publication-item">
+<p>27. Chen, S., Chen, J., & Liu, Y.* (2023). Are there binocular advantages in Chinese reading? Evidence from eye movements. Scientific Studies of Reading, 28(3):1-14. <a href="https://doi.org/10.1080/10888438.2023.2260033" class="publication-link">https://doi.org/10.1080/10888438.2023.2260033</a></p>
+</div>
+<div class="publication-item">
+<p>26. Xia, X., Liu, Y.* , Yu, L., & Reichle, E.D. (2023). Are there preferred viewing locations in Chinese reading? Evidence from eye-tracking and computer simulations. Journal of Experimental Psychology: Learning, Memory, and Cognition, 49(4), 607–625. <a href="https://doi.org/10.1037/xlm0001142" class="publication-link">https://doi.org/10.1037/xlm0001142</a></p>
+</div>
+<div class="publication-item">
+<p>25. Cai, X., Chen, Z., Liu, Y., Deng, D., & Yu, M. (2021). A Dichoptic Optokinetic Nystagmus Paradigm for Interocular Suppression Quantification in Intermittent Exotropia. Frontiers in Neuroscience, 15, 772341. <a href="https://doi.org/10.3389/fnins.2021.772341" class="publication-link">https://doi.org/10.3389/fnins.2021.772341</a></p>
+</div>
+<div class="publication-item">
+<p>24. Wang, Y., & Liu, Y.* (2021). Can longer gaze duration determine risky investment decisions? An interactive perspective. Journal of Eye Movement Research,14(4): 10. <a href="https://doi.org/10.16910/jemr.14.4.3" class="publication-link">https://doi.org/10.16910/jemr.14.4.3</a></p>
+</div>
+<div class="publication-item">
+<p>23. Yu, L.*, Liu, Y.*, & Reichle, E. D. (2021). A corpus-based versus experimental examination of word- and character-frequency effects in Chinese reading: theoretical implications for models of reading. Journal of Experimental Psychology: General, 150(8), 1612-1641. <a href="https://doi.org/10.1037/xge0001014" class="publication-link">https://doi.org/10.1037/xge0001014</a></p>
+</div>
+<div class="publication-item">
+<p>22. Li, H., Fan, J., Zhao, G., Wang, M., Zheng, L., Meng, H., Weng, Q., Liu, Y., & Lievens, F. (2020). The Role of Emotions as Mechanisms of Mid-Test Warning Messages during Personality Testing: A Field Experiment. Journal of Applied Psychology, 107(1):40-59. <a href="https://doi.org/10.1037/apl0000885" class="publication-link">https://doi.org/10.1037/apl0000885</a></p>
+</div>
+<div class="publication-item">
+<p>21. Zhu, Z.#, Hu, Y.#, Liao, C.#, Keel, S., Huang, R., Liu, Y.*, & He, M.* (2019). Visual Span and Cognitive Factors Affect Chinese Reading Speed. Journal of Vision, 19(14):17, 1-11. <a href="https://doi.org/10.1167/19.14.17" class="publication-link">https://doi.org/10.1167/19.14.17</a></p>
+</div>
+<div class="publication-item">
+<p>20. Guo, S., Liu, Y., Wang, Y., Li, L.M.W., & Gao, D.* (2019). Impression Management in Predicting Social Stress and Adaptive Work Behaviors. International Journal of Stress Management, 29(4), 319–329. <a href="http://dx.doi.org/10.1037/str0000143" class="publication-link">http://dx.doi.org/10.1037/str0000143</a></p>
+</div>
+<div class="publication-item">
+<p>19. Zhu, Z.#, Hu, Y.#, Liao, C.#, Huang, R., Keel, S., Liu, Y.*, & He, M.* (2019). Perceptual Learning of Visual Span Improves Chinese Reading Speed. Investigative ophthalmology & visual science, 60(6), 2357-2368. <a href="https://doi.org/10.1167/iovs.18-25780" class="publication-link">https://doi.org/10.1167/iovs.18-25780</a></p>
+</div>
+<div class="publication-item">
+<p>18. Liu, Y.*, Yu, L., Fu, L., Li, W., Duan, Z., & Reichle, E. D. (2019). The Effects of Parafoveal Word Frequency and Segmentation on Saccade Targeting during Chinese Reading. Psychonomic Bulletin & Review, 26(4), 1367-1376. <a href="https://doi.org/10.3758/s13423-019-01577-x" class="publication-link">https://doi.org/10.3758/s13423-019-01577-x</a></p>
+</div>
+<div class="publication-item">
+<p>17. Liu, Y.*, Yu, L., & Reichle, E. D. (2019). The Influence of Parafoveal Preview, Character Transposition, and Word Frequency on Saccadic Targeting in Chinese Reading. Journal of Experimental Psychology: Human Perception and Performance, 45(4), 537-552. <a href="https://doi.org/10.1037/xhp0000630" class="publication-link">https://doi.org/10.1037/xhp0000630</a></p>
+</div>
+<div class="publication-item">
+<p>16. Liu, Y.*, Yu, L., & Reichle, E.D. (2019). The Dynamic Adjustment of Saccades During Chinese Reading: Evidence from Eye Movements and Simulations. Journal of Experimental Psychology: Learning, Memory, and Cognition, 45(3), 535-543. <a href="https://doi.org/10.1037/xlm0000595" class="publication-link">https://doi.org/10.1037/xlm0000595</a></p>
+</div>
+<div class="publication-item">
+<p>15. Liu, Y.*, & Reichle, E.D. (2018). Using Eye Movements to Understand the Leakage of Information during Chinese Reading. Psychonomic Bulletin & Review, 25(6), 2323-2329. <a href="https://doi.org/10.3758/s13423-018-1475-0" class="publication-link">https://doi.org/10.3758/s13423-018-1475-0</a></p>
+</div>
+<div class="publication-item">
+<p>14. Liu, Y.*, & Reichle, E. D. (2018). Eye-Movement Evidence for Object-Based Attention in Chinese Reading. Psychological Science, 29(2), 278-287. <a href="https://doi.org/10.1177/0956797617734827" class="publication-link">https://doi.org/10.1177/0956797617734827</a></p>
+</div>
+<div class="publication-item">
+<p>13. Liu, Y.*#, Guo, S.#, Yu, L.#, & Reichle, E.D.# (2018). Word Predictability Affects Saccade Length in Chinese Reading: An Evaluation of the Dynamic-Adjustment Model. Psychonomic Bulletin & Review, 25(5), 1891–1899. <a href="https://doi.org/10.3758/s13423-017-1357-x" class="publication-link">https://doi.org/10.3758/s13423-017-1357-x</a></p>
+</div>
+<div class="publication-item">
+<p>12. Liu, Y.*, Huang, R., Gao, D-G., & Reichle, E.D. (2017). Further Tests of a Dynamic-Adjustment Account of Saccade Targeting During the Reading of Chinese. Cognitive Science, 41(S6), 1264–1287. <a href="https://doi.org/10.1111/cogs.12487" class="publication-link">https://doi.org/10.1111/cogs.12487</a></p>
+</div>
+<div class="publication-item">
+<p>11. Liu, Y.*#, Huang, R.#, Li, Y., & Gao, D.* (2017). The Word Frequency Effect on Saccade Targeting during Chinese Reading: Evidence from A Survival Analysis of Saccade Length. Frontiers in Psychology, 8: 116. <a href="https://doi.org/10.3389/fpsyg.2017.00116" class="publication-link">https://doi.org/10.3389/fpsyg.2017.00116</a></p>
+</div>
+<div class="publication-item">
+<p>10. Lou, Y., Liu, Y., Kaakinen, J. K., & Li, X.* (2017). Using support vector machines to identify literacy skills: Evidence from eye movements. Behavior Research Methods, 49(3), 887-895. <a href="https://doi.org/10.3758/s13428-016-0748-7" class="publication-link">https://doi.org/10.3758/s13428-016-0748-7</a></p>
+</div>
+<div class="publication-item">
+<p>9. Liu, Y., Reichle, E.D., & Li, X.* (2016). The effect of word frequency and parafoveal preview on saccade length during the reading of Chinese. Journal of Experimental Psychology: Human Perception and Performance, 42(7), 1008-25. <a href="https://doi.org/10.1037/xhp0000190" class="publication-link">https://doi.org/10.1037/xhp0000190</a></p>
+</div>
+<div class="publication-item">
+<p>8. Liu, Y., Reichle, E. D., & Li, X.* (2015). Parafoveal processing affects outgoing saccade length during the reading of Chinese. Journal of Experimental Psychology: Learning, Memory, and Cognition, 41(4), 1229-36. <a href="https://doi.org/10.1037/xlm0000057" class="publication-link">https://doi.org/10.1037/xlm0000057</a></p>
+</div>
+<div class="publication-item">
+<p>7. Lin, N.*, Wang, X., Zhao, Y., Liu, Y., Li, X., & Bi, Y. (2015). Premotor Cortex Activation Elicited during Word Comprehension Relies on Access of Specific Action Concepts. Journal of Cognitive Neuroscience, 27(10), 2051–62. <a href="https://doi.org/10.1162/jocn_a_00852" class="publication-link">https://doi.org/10.1162/jocn_a_00852</a></p>
+</div>
+<div class="publication-item">
+<p>6. Liu, Y., Reichle, E.D.*, & Gao, D.* (2013). Using reinforcement learning to examine dynamic attention allocation during reading. Cognitive Science, 37(8), 1507-40. <a href="https://doi.org/10.1111/cogs.12027" class="publication-link">https://doi.org/10.1111/cogs.12027</a></p>
+</div>
+<div class="publication-item">
+<p>5. O’Mara, E. M.*, Gaertner, L., Sedikides, C., Zhou, X., & Liu, Y. (2012). A longitudinal-experimental test of the panculturality of self-enhancement: Self-enhancement promotes psychological well-being both in the west and the east. Journal of Research in Personality, 46(2), 157-163. <a href="https://doi.org/10.1016/j.jrp.2012.01.001" class="publication-link">https://doi.org/10.1016/j.jrp.2012.01.001</a></p>
+</div>
+<div class="publication-item">
+<p>4. Reichle, E. D.*, Liu, Y., & Laurent, P. A. (2011). The emergence of adaptive eye movement control in reading: Theory and data. Studies of Psychology and Behavior, 9, 45-52.</p>
+</div>
+<div class="publication-item">
+<p>3. Fa, Z., Zhang, R., Li, P., Zhang, J., Zhang, P., Zhu, S., Wu, Q., Huang, F, Liu, Y., Yang, L., Chang, H., Wen, Z., Gao, D.*, Zeng, Y.*, Jiang, X.* (2011). Effects of temporarily disrupting BBB on activity-induced manganese-dependent functional MRI. Brain Imaging and Behavior, 5, 181-188. <a href="https://doi.org/10.1007/s11682-011-9122-7" class="publication-link">https://doi.org/10.1007/s11682-011-9122-7</a></p>
+</div>
+<div class="publication-item">
+<p>2. He, L., Feng, C., Liu, Y., & Zhou, X.* (2010). The pursuit of optimal distinctiveness and consumer preferences. Scandinavian Journal of Psychology, 51(5), 411-417. <a href="https://doi.org/10.1111/j.1467-9450.2009.00802.x" class="publication-link">https://doi.org/10.1111/j.1467-9450.2009.00802.x</a></p>
+</div>
+<div class="publication-item">
+<p>1. Liu, Y., & Reichle, E. D.* (2010). The emergence of adaptive eye movements in reading. In S. Ohlsson& R. Catrabone (Eds.), Proceedings of the 32nd Annual Conference of the Cognitive Science Society (pp. 1136-1141). Austin, TX: Cognitive Science Society.</p>
+</div>
+</div>
+</section>
+</div>
+<footer>
+<div class="footer-content">
+<div class="footer-section">
+<h3>联系我们</h3>
+<p><i class="fas fa-map-marker-alt"></i> 地址：广州市大学城外环东路132号</p>
+<p><i class="fas fa-envelope"></i> 邮编：510006</p>
+<p><i class="fas fa-phone"></i> 电话：020-39336030</p>
+<p><i class="fas fa-envelope"></i> 邮箱：liuyp33@mail.sysu.edu.cn</p>
+</div>
+<div class="footer-section">
+<h3>关注我们</h3>
+<div class="qr-code">
+<img alt="微信公众号二维码" height="140" src="figs/qr-code.jpg" width="140"/>
+</div>
+<p>微信扫描二维码关注实验室公众号</p>
+</div>
+</div>
+<div class="copyright">
+<p>COPYRIGHT@ 2015-2025, 中山大学心理学系 计算认知与脑科学实验室</p>
+</div>
+</footer>
+<script>
+        // 添加滚动动画效果
+        document.addEventListener('DOMContentLoaded', function() {
+            const fadeElems = document.querySelectorAll('.fade-in');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            fadeElems.forEach(elem => {
+                elem.style.opacity = 0;
+                elem.style.transition = 'opacity 0.8s ease';
+                observer.observe(elem);
+            });
+        });
+    </script>
+</body>
+</html>
