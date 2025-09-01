@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>计算认知与脑科学实验室 - 中山大学</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&amp;family=Open+Sans:wght@300;400;600&amp;display=swap" rel="stylesheet"/>
+<style>
+        :root {
+            --primary-color: #0a2463;
+            --secondary-color: #3e92cc;
+            --accent-color: #d8315b;
+            --light-color: #f8f9fa;
+            --dark-color: #1e1e24;
+            --text-color: #444;
+            --light-gray: #e9ecef;
+            --medium-gray: #ced4da;
+            --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.08);
+            --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+            --border-radius: 8px;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.7;
+            color: var(--text-color);
+            background-color: #f9f9f9;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Merriweather', serif;
+            font-weight: 700;
+        }
+        
+        /* Header and Navigation */
+        header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #1a3e8c 100%);
+            color: white;
+            padding: 1rem 0;
+            box-shadow: var(--shadow-md);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .lab-name {
+            text-align: left;
+        }
+        
+        .lab-name h1 {
+            font-size: 1.8rem;
+            margin-bottom: 0.3rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+        
+        .lab-name p {
+            font-size: 0.9rem;
+            opacity: 0.85;
+            font-weight: 300;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav li {
+            margin-left: 1.2rem;
+            position: relative;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 0.8rem;
+            border-radius: 4px;
+            transition: var(--transition);
+            font-size: 0.95rem;
+        }
+        
+        nav a:hover, nav a.active {
+            background-color: rgba(255, 255, 255, 0.15);
+        }
+        
+        nav a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60%;
+            height: 2px;
+            background-color: white;
+            border-radius: 2px;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(10, 36, 99, 0.85), rgba(10, 36, 99, 0.9)), url('https://images.unsplash.com/photo-1516549655169-df83a0774514?ixlib=rb-4.0.3&auto=format&fit=crop&w=1800&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 5rem 2rem;
+            text-align: center;
+            position: relative;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.2rem;
+            color: white;
+            line-height: 1.3;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+            font-weight: 300;
+        }
+        
+        /* Main content */
+        .container {
+            padding: 2rem;
+        }
+        
+        /* Section styling */
+        section {
+            margin-bottom: 3rem;
+            padding: 2.5rem;
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            border-top: 4px solid transparent;
+        }
+        
+        section:hover {
+            box-shadow: var(--shadow-md);
+            border-top: 4px solid var(--secondary-color);
+        }
+        
+        h2 {
+            color: var(--primary-color);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 2px solid var(--light-gray);
+            position: relative;
+        }
+        
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 80px;
+            height: 2px;
+            background-color: var(--secondary-color);
+        }
+        
+        h3 {
+            color: var(--dark-color);
+            margin: 1.5rem 0 1rem;
+            font-size: 1.4rem;
+        }
+        
+        /* Cognitive image section */
+        .cognitive-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .cognitive-image {
+            width: 100%;
+            max-width: 800px;
+            margin-bottom: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-lg);
+            transition: var(--transition);
+        }
+        
+        .cognitive-image:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .cognitive-content {
+            max-width: 800px;
+        }
+        
+        .cognitive-content p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+        
+        /* Lab intro */
+        .lab-intro {
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto 2.5rem;
+        }
+        
+        .lab-intro p {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+        
+        /* Research highlights */
+        .research-highlights {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.8rem;
+            margin-top: 2.5rem;
+        }
+        
+        .research-card {
+            background: white;
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            text-align: center;
+            border-top: 3px solid transparent;
+        }
+        
+        .research-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+            border-top: 3px solid var(--accent-color);
+        }
+        
+        .research-card i {
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 1.2rem;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .research-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+        
+        .research-card p {
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        
+        /* Lab features */
+        .lab-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.8rem;
+            margin-top: 2.5rem;
+        }
+        
+        .feature {
+            text-align: center;
+            padding: 1.8rem 1.5rem;
+            background: var(--light-color);
+            border-radius: var(--border-radius);
+            transition: var(--transition);
+        }
+        
+        .feature:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .feature i {
+            font-size: 2.2rem;
+            color: var(--secondary-color);
+            margin-bottom: 1.2rem;
+            display: inline-block;
+            padding: 0.8rem;
+            border-radius: 50%;
+            background-color: rgba(62, 146, 204, 0.1);
+        }
+        
+        .feature h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.8rem;
+            font-size: 1.2rem;
+        }
+        
+        .feature p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        
+        /* News section */
+        .news-container {
+            margin-top: 2rem;
+        }
+        
+        .news-item {
+            padding: 1.8rem;
+            border-left: 4px solid var(--secondary-color);
+            background-color: var(--light-color);
+            margin-bottom: 1.5rem;
+            border-radius: 0 var(--border-radius) var(--border-radius) 0;
+            transition: var(--transition);
+        }
+        
+        .news-item:hover {
+            transform: translateX(5px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .news-date {
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 0.8rem;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .news-date::before {
+            content: '📅';
+            margin-right: 0.5rem;
+        }
+        
+        .news-item h3 {
+            margin-bottom: 0.8rem;
+            color: var(--dark-color);
+        }
+        
+        .news-item p {
+            line-height: 1.6;
+        }
+        
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #1a3e8c 100%);
+            color: white;
+            padding: 3rem 2rem 1.5rem;
+            text-align: center;
+            margin-top: 4rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto 2rem;
+            text-align: left;
+        }
+        
+        .footer-section {
+            margin-bottom: 1.5rem;
+        }
+        
+        .footer-section h3 {
+            color: white;
+            margin-bottom: 1.2rem;
+            font-size: 1.3rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+        
+        .footer-section h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: var(--secondary-color);
+        }
+        
+        .footer-section p {
+            margin-bottom: 0.5rem;
+            opacity: 0.9;
+            font-size: 0.95rem;
+        }
+        
+        .qr-code {
+            width: 150px;
+            height: 150px;
+            margin: 0 0 1rem;
+            background: white;
+            padding: 0.5rem;
+            border-radius: var(--border-radius);
+            display: inline-block;
+        }
+        
+        .qr-code img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+        
+        .copyright {
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.15);
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        /* Responsive design */
+        @media (max-width: 992px) {
+            .header-content {
+                padding: 0 1.5rem;
+            }
+            
+            .hero {
+                padding: 4rem 1.5rem;
+            }
+            
+            .hero h2 {
+                font-size: 2.2rem;
+            }
+            
+            .container {
+                padding: 1.5rem;
+            }
+            
+            section {
+                padding: 2rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .lab-name {
+                margin-bottom: 1.2rem;
+                text-align: center;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            nav li {
+                margin: 0.4rem;
+            }
+            
+            .hero h2 {
+                font-size: 1.8rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            section {
+                padding: 1.5rem;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .footer-section h3::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+        }
+        
+        /* Animation effects */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.8s ease forwards;
+        }
+        
+        .delay-1 { animation-delay: 0.2s; }
+        .delay-2 { animation-delay: 0.4s; }
+        .delay-3 { animation-delay: 0.6s; }
+        
+        /* Button style (if needed in future) */
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background: var(--secondary-color);
+            color: white;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .btn:hover {
+            background: var(--primary-color);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+        }
+    </style>
+</head>
+<body>
+<header>
+<div class="header-content">
+<div class="lab-name">
+<h1>计算认知与脑科学实验室</h1>
+<p>中山大学心理学系</p>
+</div>
+<nav>
+<ul>
+<li><a class="active" href="#">首页</a></li>
+<li><a href="#">研究方向</a></li>
+<li><a href="#">团队成员</a></li>
+<li><a href="#">科研成果</a></li>
+<li><a href="#">学术资源</a></li>
+<li><a href="#">联系我们</a></li>
+</ul>
+</nav>
+</div>
+</header>
+<div class="hero">
+<div class="hero-content">
+<h2>探索心智与大脑的奥秘</h2>
+<p>计算认知与脑科学实验室致力于通过跨学科方法研究人类认知过程及其神经机制</p>
+</div>
+</div>
+<div class="container">
+<section class="fade-in" id="cognitive">
+<div class="cognitive-section">
+<img alt="Cognitive Perspective" class="cognitive-image" src="cognitive-psychology-1.webp"/>
+<div class="cognitive-content">
+<h2>认知科学研究</h2>
+<p>我们的研究涵盖了认知心理学的核心领域，包括注意、语言、学习、感知、思维和记忆等基本认知过程。通过计算建模和神经科学技术，我们致力于揭示人类心智的工作机制。</p>
+</div>
+</div>
+</section>
+<section class="fade-in delay-1" id="intro">
+<div class="lab-intro">
+<h2>实验室简介</h2>
+<p>计算认知与脑科学实验室成立于2015年，是中山大学心理学系的核心研究团队之一。实验室采用多学科交叉的研究方法，结合认知心理学、计算建模、神经科学和人工智能技术，探索人类认知的基本原理和大脑工作机制。</p>
+<p>我们的研究团队由来自心理学、计算机科学、神经科学和工程学等不同背景的研究人员组成，致力于推动认知科学的前沿研究，并培养下一代认知科学家。</p>
+</div>
+<div class="lab-features">
+<div class="feature fade-in delay-2">
+<i class="fas fa-flask"></i>
+<h3>先进实验设备</h3>
+<p>拥有眼动仪、脑电图(EEG)、核磁共振(fMRI)和计算机集群等先进研究设备</p>
+</div>
+<div class="feature fade-in delay-2">
+<i class="fas fa-chart-line"></i>
+<h3>跨学科研究</h3>
+<p>整合心理学、神经科学、计算机科学和人工智能研究方法</p>
+</div>
+<div class="feature fade-in delay-3">
+<i class="fas fa-graduation-cap"></i>
+<h3>人才培养</h3>
+<p>培养本科、硕士、博士研究生及博士后研究人员</p>
+</div>
+<div class="feature fade-in delay-3">
+<i class="fas fa-handshake"></i>
+<h3>国际合作</h3>
+<p>与国际知名大学和研究机构保持密切合作</p>
+</div>
+</div>
+</section>
+<section class="fade-in delay-2" id="news">
+<h2>实验室动态</h2>
+<div class="news-container">
+<div class="news-item">
+<div class="news-date">2025年4月20日</div>
+<h3>实验室在《Journal of Experimental Psychology》发表最新研究成果</h3>
+<p>本研究通过结合眼动仪和脑电揭示了中文阅读过程中的注意分配机制，为语言处理提供了新思路。</p>
+</div>
+</section>
+</div>
+<footer>
+<div class="footer-content">
+<div class="footer-section">
+<h3>联系我们</h3>
+<p><i class="fas fa-map-marker-alt"></i> 地址：广州市大学城外环东路132号</p>
+<p><i class="fas fa-envelope"></i> 邮编：510006</p>
+<p><i class="fas fa-phone"></i> 电话：020-39336030</p>
+<p><i class="fas fa-envelope"></i> 邮箱：liuyp33@mail.sysu.edu.cn</p>
+</div>
+<div class="footer-section">
+<h3>关注我们</h3>
+<div class="qr-code">
+<img alt="微信公众号二维码" height="140" src="111.jpg" width="140"/>
+</div>
+<p>微信扫描二维码关注实验室公众号</p>
+</div>
+</div>
+<div class="copyright">
+<p>COPYRIGHT@ 2015-2025, 中山大学心理学系 计算认知与脑科学实验室</p>
+</div>
+</footer>
+<script>
+        // 添加滚动动画效果
+        document.addEventListener('DOMContentLoaded', function() {
+            const fadeElems = document.querySelectorAll('.fade-in');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            fadeElems.forEach(elem => {
+                elem.style.opacity = 0;
+                elem.style.transition = 'opacity 0.8s ease';
+                observer.observe(elem);
+            });
+        });
+    </script>
+</body>
+</html>
